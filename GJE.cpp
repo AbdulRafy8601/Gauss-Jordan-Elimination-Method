@@ -136,7 +136,7 @@ int main()
             Is_infinite_many = false;
         }
     }
-    if (Is_inconsistent == true && Is_infinite_many == true)
+    if (Is_infinite_many == true)
     {
         cout << "System has infinite many solutions!" << endl;
     }
