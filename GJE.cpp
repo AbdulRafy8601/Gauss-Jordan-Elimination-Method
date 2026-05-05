@@ -136,13 +136,13 @@ int main()
             Is_infinite_many = false;
         }
     }
-    if (Is_infinite_many == true)
-    {
-        cout << "System has infinite many solutions!" << endl;
-    }
-    else if (Is_inconsistent == true)
+    if (Is_inconsistent == true)
     {
         cout << "System is inconsistent!" << endl;
+    }
+    else if (Is_infinite_many == true)
+    {
+        cout << "System has infinite many solutions!" << endl;
     }
     else
     {
