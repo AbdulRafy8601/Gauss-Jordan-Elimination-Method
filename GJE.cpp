@@ -18,7 +18,7 @@ void display(double **&arr, int &n)
 int main()
 {
     int n = 0;
-    //  bool flag=true;
+    bool stop_classification = true;
     cout << "Enter the number of variables:";
     do
     {
@@ -52,17 +52,17 @@ int main()
         if (arr[i][j] == 0) // where i==j, 0,0// if the pivot column has zero element, reverse it with other row
         {
             int index;
-            bool flag = false;
+            bool do_swap = false;
             for (int k = 0; k < n; k++) // k is representing  the rows
             {
                 if (arr[k][j] != 0) // if it gets true, we will interchange(swap) the i th row with the k th row
                 {
                     index = k;
-                    flag = true;
+                    do_swap = true;
                     break;
                 }
             }
-            if (flag)
+            if (do_swap)// if there is a row to swap with i th row, then only we will swap otherwise we will check for the consistency of the system 
             {
                 cout << "Index:" << index << endl;
                 double temp;
@@ -75,9 +75,11 @@ int main()
             }
             else
             {
-                cout << "The system is consistent or has infinite many soluton." << endl;
-                // flag=false;//It will stop the last processing
-                break;
+               //  cout << "The system is consistent or has infinite many soluton." << endl;
+               // stop_classification=false;//It will stop the last processing
+                i++; 
+                j++;
+               //  break;
             }
         }
         else if (arr[i][j] != 1)
@@ -108,28 +110,37 @@ int main()
 
     display(arr, n);
 
-    bool flag1 = false, flag2 = false;
-    for (int j = 0; j < n; j++)
+    bool Is_inconsistent = false, Is_infinite_many = false;
+
+    for(int i = 0; i < n; i++)
     {
-        if (arr[0][j] == 0)
+        if (arr[i][i] == 0 && arr[i][n] != 0)
         {
-            flag1 = true;
-        }
-        else
-        {
-            flag1 = false;
+            Is_inconsistent = true;
             break;
         }
+        else 
+        {
+            Is_inconsistent = false;
+        }
     }
-    if (arr[0][n] == 0)
+    for(int i = 0; i < n; i++)
     {
-        flag2 = true;
+        if (arr[i][i] == 0 && arr[i][n] == 0)
+        {
+            Is_infinite_many = true;
+            break;
+        }
+        else 
+        {
+            Is_infinite_many = false;
+        }
     }
-    if (flag1 == true && flag2 == true)
+    if (Is_inconsistent == true && Is_infinite_many == true)
     {
         cout << "System has infinite many solutions!" << endl;
     }
-    else if (flag1 == 1)
+    else if (Is_inconsistent == true)
     {
         cout << "System is inconsistent!" << endl;
     }
