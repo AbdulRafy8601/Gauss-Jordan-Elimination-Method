@@ -24,23 +24,14 @@ g++ -std=c++11 -O2 main.cpp -o gauss
 ```
 
 ## Run / Usage
+### Case 1: Unique Solution
+<img width="622" height="484" alt="Execution Example " src="https://github.com/user-attachments/assets/335d0bf4-a761-479c-afa9-f4430746b341" />
 
-Run the compiled program and provide the augmented matrix via standard input. The expected input format is an integer n (number of rows / equations) followed by m columns per row where m = n+1 for an augmented matrix (variables plus RHS).
+### Case 2: Infinite Many Solution
+<img width="684" height="473" alt="Infinite Many Solutions" src="https://github.com/user-attachments/assets/ec79704f-5c40-4b11-8c6e-fb09b58c5e2c" />
 
-Example for a 3x4 augmented matrix (3 equations, 3 variables plus right-hand side):
-
-```text
-3 4
-2 1 -1 8
--3 -1 2 -11
--2 1 2 -3
-```
-
-For the matrix above the solution is:
-
-x = 2, y = 3, z = -1
-
-If your program uses a different input format (for example separate `n` and `m` lines or prompts), adjust the command above accordingly.
+### Case 3: Inconsistent System
+<img width="505" height="431" alt="image" src="https://github.com/user-attachments/assets/5229b099-9f20-48cf-ba2a-cd58a7881ad6" />
 
 ## Example
 
