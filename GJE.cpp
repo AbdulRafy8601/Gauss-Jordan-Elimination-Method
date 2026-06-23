@@ -15,6 +15,18 @@ void display(double **&arr, int &n)
     }
 }
 
+void format(int n)
+{
+    for(int i(0);i<n;i++)
+    {
+        for(int j(0);j<n;j++)
+        {
+            cout<<"a"<<i+1<<j+1<<" ";
+        }
+        cout<<"c"<<i+1<<endl;
+    }
+}
+
 int main()
 {
     int n = 0;
@@ -34,7 +46,9 @@ int main()
     } while (n <= 0);
 
     double **arr = new double *[n]; // Input for matrix of size n x (n+1) elements where n is the number of variables and 1 is for the constants in the equations
-    cout << "Enter values for " << n << 'x' << n << " matrix:" << endl;
+    cout << "In the format"<<endl;
+    format(n);
+    cout<<"Enter values for " << n << 'x' << n << " matrix :"<<endl;
     for (int i = 0; i < n; i++)
     {
         arr[i] = new double[n + 1];
@@ -45,7 +59,7 @@ int main()
     }
 
     display(arr, n);
-    cout << "Processing" << endl;
+    cout << "Processing......" << endl;
     int i = 0, j = 0;
     while (j < n) // OR while(i<n)
     {
@@ -106,6 +120,7 @@ int main()
             i++;
             j++;
         }
+	
     }
 
     display(arr, n);
@@ -158,5 +173,6 @@ int main()
         delete[] arr[i];
     }
     delete[] arr;
+    system("Pause");
     return 0;
 }
